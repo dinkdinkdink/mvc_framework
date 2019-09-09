@@ -74,7 +74,9 @@ def route_login_view(request):
 def route_register_view(request):
     user = current_user(request)
     result = request.query.get('result', '')
+    log('test1', result)
     result = urllib.parse.unquote_plus(result)
+    log('test2', result)
     return html_response(
         'register.html', result=result, username=user.username
     )

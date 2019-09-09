@@ -110,6 +110,7 @@ class SQLModel(object):
                 log('ORM execute <{}>'.format(cursor.mogrify(sql_select, values)))
                 cursor.execute(sql_select, values)
                 result = cursor.fetchall()
+                log('test3', result)
         finally:
             connection.close()
 
@@ -117,6 +118,7 @@ class SQLModel(object):
         for row in result:
             m = cls(row)
             ms.append(m)
+        log('test4', ms)
         return ms
 
     @classmethod
